@@ -128,10 +128,10 @@ export default function HomePage() {
 
   return (
     <main className="mx-auto min-h-screen max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <div className="overflow-hidden rounded-[2rem] bg-hero-grid px-6 py-8 text-paper shadow-panel sm:px-10 sm:py-10">
-        <p className="text-xs font-bold uppercase tracking-[0.36em] text-mint">Toast Demo</p>
-        <h1 className="mt-3 max-w-2xl text-4xl font-black tracking-tight sm:text-6xl">A Toast-style restaurant ordering flow for hospitality teams to explore.</h1>
-        <p className="mt-4 max-w-2xl text-sm leading-7 text-stone-200 sm:text-base">
+      <div className="overflow-hidden rounded-[2rem] bg-[linear-gradient(135deg,#ff7a1a_0%,#ff5f00_100%)] px-6 py-8 text-white shadow-panel ring-1 ring-orange-300 sm:px-10 sm:py-10">
+        <p className="text-xs font-bold uppercase tracking-[0.36em] text-orange-100">Toast Demo</p>
+        <h1 className="mt-3 max-w-2xl text-4xl font-black tracking-tight text-white sm:text-6xl">Toast-style ordering flow</h1>
+        <p className="mt-4 max-w-2xl text-sm leading-7 text-orange-50 sm:text-base">
           Pick a restaurant item, choose the required modifier, price the draft order, and submit it through the Toast demo workflow.
         </p>
       </div>
