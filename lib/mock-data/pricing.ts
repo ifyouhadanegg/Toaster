@@ -1,12 +1,11 @@
 import { type DraftOrder, pricingBreakdownSchema, pricingResponseSchema } from '@/lib/schemas/pricing';
-import { getMenu } from './menu';
+import { findPhewBArItem } from './venues';
 import { roundToCents } from '@/lib/utils/money';
 
 const TAX_RATE = 0.0825;
 
 export function calculatePricing(draftOrder: DraftOrder) {
-  const menu = getMenu();
-  const item = menu.groups.flatMap((group) => group.items).find((menuItem) => menuItem.id === draftOrder.itemId);
+  const item = findPhewBArItem(draftOrder.venueId, draftOrder.itemId);
 
   if (!item) {
     throw new Error('Unknown menu item.');
@@ -29,13 +28,14 @@ export function calculatePricing(draftOrder: DraftOrder) {
   const subtotalCents = item.priceCents + selectedOptions.reduce((sum, option) => sum + option.priceDeltaCents, 0);
   const taxCents = roundToCents(subtotalCents * TAX_RATE);
   const totalCents = subtotalCents + taxCents;
+  const modifierLabels = selectedOptions.map((option) => option.label).join(', ');
 
   return pricingResponseSchema.parse({
     subtotalCents,
     taxCents,
     totalCents,
     currency: 'USD',
-    lineItemDescription: `${item.name} with ${selectedOptions.map((option) => option.label).join(', ')}`
+    lineItemDescription: modifierLabels ? `${item.name} with ${modifierLabels}` : item.name
   });
 }
 

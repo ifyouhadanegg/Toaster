@@ -4,25 +4,27 @@ import { calculatePricing } from '@/lib/mock-data/pricing';
 describe('calculatePricing', () => {
   it('returns subtotal, tax, and total for a valid draft order', () => {
     const pricing = calculatePricing({
-      itemId: 'grilled-chicken-bowl',
-      selectedModifiers: [{ groupId: 'chicken-bowl-protein', optionId: 'crispy' }]
+      venueId: 'daybreak-coffee',
+      itemId: 'daybreak-oat-latte',
+      selectedModifiers: []
     });
 
     expect(pricing).toEqual({
-      subtotalCents: 1395,
-      taxCents: 115,
-      totalCents: 1510,
+      subtotalCents: 550,
+      taxCents: 45,
+      totalCents: 595,
       currency: 'USD',
-      lineItemDescription: 'Grilled Chicken Bowl with Crispy'
+      lineItemDescription: 'Oat Milk Latte'
     });
   });
 
-  it('throws when a required modifier is missing', () => {
+  it('throws when the item does not belong to the venue', () => {
     expect(() =>
       calculatePricing({
-        itemId: 'grilled-chicken-bowl',
+        venueId: 'daybreak-coffee',
+        itemId: 'amber-house-lager',
         selectedModifiers: []
       })
-    ).toThrow('Missing required modifier for Protein style.');
+    ).toThrow('Unknown menu item.');
   });
 });

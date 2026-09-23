@@ -6,6 +6,7 @@ export const selectedModifierSchema = z.object({
 });
 
 export const draftOrderSchema = z.object({
+  venueId: z.string(),
   itemId: z.string(),
   selectedModifiers: z.array(selectedModifierSchema)
 });

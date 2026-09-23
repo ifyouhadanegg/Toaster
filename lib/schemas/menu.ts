@@ -20,7 +20,8 @@ export const menuItemSchema = z.object({
   name: z.string(),
   description: z.string(),
   priceCents: z.number().int().nonnegative(),
-  modifierGroups: z.array(modifierGroupSchema)
+  modifierGroups: z.array(modifierGroupSchema),
+  phewBAr: z.boolean().optional()
 });
 
 export const menuGroupSchema = z.object({
