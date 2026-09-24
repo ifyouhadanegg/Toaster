@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export default function RedeemPage() {
   return (
     <main className="flex min-h-screen items-center justify-center px-6 py-12">
@@ -8,12 +6,6 @@ export default function RedeemPage() {
         <h1 className="mt-4 text-3xl font-black tracking-tight text-ink sm:text-4xl">
           Thanks for testing the Toast experience on Codename:PhewBar
         </h1>
-        <Link
-          href="/"
-          className="mt-8 inline-flex rounded-full bg-orange-500 px-5 py-3 text-sm font-bold text-white transition hover:bg-orange-600"
-        >
-          Back to the demo
-        </Link>
       </div>
     </main>
   );
