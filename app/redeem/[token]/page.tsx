@@ -1,5 +1,12 @@
-export default async function RedeemPage({ params }: { params: Promise<{ token: string }> }) {
+export default async function RedeemPage({
+  params,
+  searchParams
+}: {
+  params: Promise<{ token: string }>;
+  searchParams: Promise<{ drink?: string; venue?: string }>;
+}) {
   const { token } = await params;
+  const { drink, venue } = await searchParams;
 
   return (
     <main className="flex min-h-screen items-center justify-center px-6 py-12">
@@ -10,6 +17,11 @@ export default async function RedeemPage({ params }: { params: Promise<{ token: 
         </h1>
         <p className="mt-6 text-sm text-stone-500">Gift token</p>
         <p className="mt-1 break-all font-mono text-lg font-bold text-ink">{token}</p>
+        {drink ? (
+          <p className="mt-6 text-lg font-semibold text-ink">
+            {drink} {venue ? `at ${venue}` : null}
+          </p>
+        ) : null}
       </div>
     </main>
   );

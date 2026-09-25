@@ -13,7 +13,7 @@ export function createGift(request: GiftRequest): Gift {
   }
 
   const token = createGiftToken();
-  const redeemUrl = `https://toaster-hvlv.onrender.com/redeem/${token}`;
+  const redeemUrl = `https://toaster-hvlv.onrender.com/redeem/${token}?drink=${encodeURIComponent(item.name)}&venue=${encodeURIComponent(venue.name)}`;
   const message = `You've been gifted a ${item.name} on me at ${venue.name}! Show this at the counter to redeem: ${redeemUrl}`;
 
   const gift = giftSchema.parse({
