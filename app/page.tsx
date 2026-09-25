@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { VenueList } from '@/components/venue/VenueList';
 import { MenuGroups } from '@/components/menu/MenuGroups';
@@ -144,6 +145,7 @@ export default function HomePage() {
     <main className="mx-auto min-h-screen max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <div className="overflow-hidden rounded-[2rem] bg-[linear-gradient(135deg,#ff7a1a_0%,#ff5f00_100%)] px-6 py-8 text-white shadow-panel ring-1 ring-orange-300 sm:px-10 sm:py-10">
         <p className="text-xs font-bold uppercase tracking-[0.36em] text-orange-100">Toast Demo</p>
+        <Image src="/onme-logo.png" alt="On Me" width={180} height={64} className="mt-5 h-12 w-auto object-contain object-left sm:h-14" priority />
         <h1 className="mt-3 max-w-2xl text-4xl font-black tracking-tight text-white sm:text-6xl">Codename:PhewBar</h1>
         <p className="mt-4 max-w-2xl text-sm leading-7 text-orange-50 sm:text-base">
           Pick a venue, choose a beverage from its Toast-powered &ldquo;Codename:PhewBar&rdquo; menu, buy it...
