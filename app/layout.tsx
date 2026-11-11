@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Codename:PhewBar — Toast Demo',
-  description: 'A demo Toast-powered gifting flow: pick a venue, buy a beverage, and share it as a gift.',
+  description: 'Explore the Codename:PhewBar demo site for Toast integration.',
   icons: {
     icon: '/icon.webp',
     apple: '/icon.webp'

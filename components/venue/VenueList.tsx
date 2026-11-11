@@ -4,8 +4,8 @@ import { Button } from '@/components/ui/Button';
 
 type VenueListProps = {
   venues: Venue[];
-  selectedVenueId: string | null;
-  onSelectVenue: (venueId: string) => void;
+  selectedVenueId?: string | null;
+  onSelectVenue?: (venueId: string) => void;
 };
 
 const kindLabels: Record<Venue['kind'], string> = {
@@ -22,14 +22,16 @@ export function VenueList({ venues, selectedVenueId, onSelectVenue }: VenueListP
           <h3 className="mt-1 text-lg font-extrabold text-ink">{venue.name}</h3>
           <p className="mt-1 text-sm leading-6 text-stone-600">{venue.tagline}</p>
           <p className="mt-2 text-xs font-semibold text-stone-500">{venue.location}</p>
-          <Button
-            type="button"
-            className="mt-4 w-full"
-            variant={selectedVenueId === venue.id ? 'secondary' : 'primary'}
-            onClick={() => onSelectVenue(venue.id)}
-          >
-            {selectedVenueId === venue.id ? 'Selected' : 'Choose venue'}
-          </Button>
+          {onSelectVenue ? (
+            <Button
+              type="button"
+              className="mt-4 w-full"
+              variant={selectedVenueId === venue.id ? 'secondary' : 'primary'}
+              onClick={() => onSelectVenue(venue.id)}
+            >
+              {selectedVenueId === venue.id ? 'Selected' : 'Choose venue'}
+            </Button>
+          ) : null}
         </Card>
       ))}
     </div>
